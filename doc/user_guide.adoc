@@ -316,7 +316,7 @@ imageOutputDir:: the directory passed as argument to the `--output` option when 
     _usage example_: `imageOutputDir = file("$buildDir/my-packaging-image")`
 
 imageName:: the argument passed to the `--name` option when running `jpackage` to create an application image. +
-    _defaultValue_: `_project.name_` +
+    _defaultValue_: the `applicationName` configured for the `application` plugin, then `_project.name_` +
     _usage example_: `imageName = "MyApp"`
 
 imageOptions:: list of additional options to be passed to the `jpackage` executable when creating the appliction image. +
@@ -340,7 +340,7 @@ installerOutputDir:: the directory passed as argument to the `--output` option w
     _usage example_: `installerOutputDir = file("$buildDir/my-packaging-installer")`
 
 installerName:: the argument passed to the `--name` option when running `jpackage` to create an application installer. +
-    _defaultValue_: `_project.name_` +
+    _defaultValue_: the `applicationName` configured for the `application` plugin, then `_project.name_` +
     _usage example_: `installerName = "MyApp"`
 
 jvmArgs:: list of JVM arguments to be passed to the virtual machine. +

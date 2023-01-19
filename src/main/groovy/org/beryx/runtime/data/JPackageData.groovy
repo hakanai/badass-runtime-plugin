@@ -16,6 +16,7 @@
 package org.beryx.runtime.data
 
 import org.beryx.runtime.util.Util
+import org.gradle.api.plugins.JavaApplication
 import org.gradle.api.tasks.Internal
 
 import static org.beryx.runtime.util.Util.EXEC_EXTENSION
@@ -106,14 +107,19 @@ class JPackageData {
     String getMainClassOrDefault() {
         this.@mainClass ?: Util.getMainClass(project)
     }
+
     @Input
     String getImageNameOrDefault() {
-        this.@imageName ?: project.name
+        this.@imageName
+                ?: project.extensions.getByType(JavaApplication).applicationName
+                ?: project.name
     }
 
     @Input
     String getInstallerNameOrDefault() {
-        this.@installerName ?: project.name
+        this.@installerName
+                ?: project.extensions.getByType(JavaApplication).applicationName
+                ?: project.name
     }
 
     @OutputDirectory
